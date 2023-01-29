@@ -64,11 +64,11 @@ class LogisticRegression:
             l2_loss_component = self.l2 * np.sum(w ** 2)
 
             return log_loss_component + l1_loss_component + l2_loss_component
-        
-        return self
 
         optimizer = ng.optimizers.OnePlusOne(parametrization=d+1, budget=100)
         self.params = optimizer.minimize(_objective).value
+
+        return self
 
     def predict_proba(self, X):
         """
